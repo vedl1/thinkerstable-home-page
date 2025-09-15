@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thinkers Table - Podcast Homepage</title>
+    <meta name="description" content="Stories from the deeptech operators changing the world. Listen to insightful conversations about the future of technology.">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Thinkers Table - Podcast Homepage">
+    <meta property="og:description" content="Stories from the deeptech operators changing the world. Listen to insightful conversations about the future of technology.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="images/og-image.jpg">
+    
+    <!-- Preload fonts -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- Beehiiv integration -->
+    <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="wordmark">
+                    <h1 class="logo">Thinkers Table</h1>
+                    <p class="tagline">Stories from the deeptech operators changing the world</p>
+                </div>
+                <nav class="nav">
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#episodes" class="nav-link">Episodes</a>
+                    <a href="#listen" class="nav-link">Listen</a>
+                    <div class="nav-icons">
+                        <a href="https://open.spotify.com/show/2NO20Xotti7YZObF6ZxBA7" class="icon-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-spotify"></i></a>
+                        <a href="https://podcasts.apple.com/gb/podcast/thinkers-table/id1618069943" class="icon-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-apple"></i></a>
+                        <a href="https://www.youtube.com/@ThinkersTable" class="icon-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <div class="header-cta">
+                        <button class="subscribe-button">Subscribe</button>
+                    </div>
+                </nav>
+            </div>
+            <div class="header-underline"></div>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2 class="hero-headline">
+                    <span class="headline-word">Stories</span>
+                    <span class="headline-word">from</span>
+                    <span class="headline-word">the</span>
+                    <span class="headline-word">deeptech</span>
+                    <span class="headline-word">operators</span>
+                    <span class="headline-word">changing</span>
+                    <span class="headline-word">the</span>
+                    <span class="headline-word">world</span>
+                </h2>
+                <p class="hero-dek">
+                    Insightful conversations with the brightest minds in AI, robotics, and emerging tech who are building the future.
+                </p>
+                <div class="hero-cta">
+                    <a href="https://open.spotify.com/show/2NO20Xotti7YZObF6ZxBA7" class="play-button" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-play"></i>
+                        <span>Listen Now</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EPISODE PITCH -->
+    <section class="episode-pitch" id="episodes">
+        <div class="container">
+            <div class="episode-content">
+                <div class="episode-text">
+                    <h3 class="section-title">Latest Episode</h3>
+                    <h4 class="episode-title" id="latest-episode-title">Loading latest episode...</h4>
+                    <p class="episode-blurb" id="latest-episode-description">
+                        Loading episode description...
+                    </p>
+                    <div class="episode-meta">
+                        <span class="episode-duration" id="latest-episode-duration">Loading...</span>
+                        <span class="episode-date" id="latest-episode-date">Loading...</span>
+                    </div>
+                </div>
+                <div class="episode-visual">
+                    <div class="episode-collage">
+                        <div class="collage-item"></div>
+                        <div class="collage-item"></div>
+                        <div class="collage-item"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURED VIDEOS -->
+    <section class="featured-videos" id="featured-videos">
+        <div class="container">
+            <h3 class="section-title">Featured Episodes</h3>
+            <div class="videos-grid" id="featured-episodes-grid">
+                <div class="loading-placeholder" style="text-align: center; padding: var(--space-8); color: var(--color-muted);">
+                    Loading featured episodes...
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUOTES STRIP -->
+    <section class="quotes-strip">
+        <div class="container">
+            <div class="quotes-marquee">
+                <div class="quotes-track">
+                    <div class="quote-item">"This podcast changed how I think about AI" — Dr. Chen</div>
+                    <div class="quote-item">"Deep tech stories worth your commute" — Tech Weekly</div>
+                    <div class="quote-item">"Insights that actually matter" — Startup Founder</div>
+                    <div class="quote-item">"The future of tech journalism" — Innovation Review</div>
+                    <div class="quote-item">"This podcast changed how I think about AI" — Dr. Chen</div>
+                    <div class="quote-item">"Deep tech stories worth your commute" — Tech Weekly</div>
+                    <div class="quote-item">"Insights that actually matter" — Startup Founder</div>
+                    <div class="quote-item">"The future of tech journalism" — Innovation Review</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SIGNUP -->
+    <section class="cta-signup">
+        <div class="container">
+            <div class="signup-card">
+                <h3 class="section-title">Stay Updated</h3>
+                <p class="signup-text">Get notified when new episodes drop and receive exclusive insights from our guests.</p>
+                <!-- Beehiiv subscription form - trying direct form approach -->
+                <div class="beehiiv-form-container">
+                    <!-- Debug info -->
+                    <div id="debug-info" style="color: var(--color-muted); font-size: var(--size-small); margin-bottom: var(--space-4);">
+                        Loading subscription form...
+                    </div>
+                    
+                    <!-- Try iframe approach first -->
+                    <iframe 
+                        id="beehiiv-iframe"
+                        src="https://subscribe-forms.beehiiv.com/746e766f-5bdd-4d84-af7e-24b32dc99f95" 
+                        class="beehiiv-embed" 
+                        data-test-id="beehiiv-embed" 
+                        frameborder="0" 
+                        scrolling="no" 
+                        style="width: 100%; max-width: 500px; height: 400px; margin: 0; border-radius: 8px; background-color: var(--color-bg); display: block; border: 1px solid var(--color-border);"
+                        onload="console.log('Beehiiv iframe loaded successfully'); document.getElementById('debug-info').style.display='none';"
+                        onerror="console.error('Beehiiv iframe failed to load'); document.getElementById('debug-info').innerHTML='Iframe failed - trying alternative...'; setTimeout(showAlternativeForm, 1000);"
+                        title="Newsletter Subscription Form">
+                    </iframe>
+                    
+                    <!-- Alternative form if iframe fails -->
+                    <div id="alternative-form" style="display: none;">
+                        <form class="signup-form" id="signup-form" action="https://api.beehiiv.com/v2/publications/pub_5a50ab3c-edf1-4d9a-9ba3-e23008cc5d3f/subscriptions" method="POST" target="_blank">
+                            <div class="form-group">
+                                <input type="email" id="email" name="email" placeholder="Enter your email address" required class="email-input">
+                                <input type="hidden" name="publication_id" value="pub_5a50ab3c-edf1-4d9a-9ba3-e23008cc5d3f">
+                                <input type="hidden" name="utm_source" value="podcast_website">
+                                <input type="hidden" name="utm_medium" value="web">
+                                <input type="hidden" name="utm_campaign" value="homepage_signup">
+                                <button type="submit" class="signup-button">Subscribe to Newsletter</button>
+                            </div>
+                        </form>
+                        <p style="color: var(--color-muted); font-size: var(--size-small); margin-top: var(--space-4);">
+                            This will open beehiiv's signup page in a new tab.
+                        </p>
+                    </div>
+                    
+                    <!-- Fallback content if JavaScript is disabled -->
+                    <noscript>
+                        <p style="color: var(--color-muted); margin-top: var(--space-4);">
+                            Please enable JavaScript to use the subscription form, or 
+                            <a href="mailto:hello@thinkerstable.com?subject=Newsletter Subscription" style="color: var(--color-accent);">email us directly</a>.
+                        </p>
+                    </noscript>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4 class="footer-label">About</h4>
+                    <p>Thinkers Table brings you the most compelling conversations about technology's future.</p>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-label">Connect</h4>
+                    <div class="social-links">
+                        <a href="https://open.spotify.com/show/2NO20Xotti7YZObF6ZxBA7" class="social-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-spotify"></i></a>
+                        <a href="https://www.linkedin.com/in/vedluhana" class="social-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.youtube.com/@ThinkersTable" class="social-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-label">Listen</h4>
+                    <div class="platform-links">
+                        <a href="https://open.spotify.com/show/2NO20Xotti7YZObF6ZxBA7" class="platform-link" target="_blank" rel="noopener noreferrer">Spotify</a>
+                        <a href="https://podcasts.apple.com/gb/podcast/thinkers-table/id1618069943" class="platform-link" target="_blank" rel="noopener noreferrer">Apple Podcasts</a>
+                        <a href="https://www.youtube.com/@ThinkersTable" class="platform-link" target="_blank" rel="noopener noreferrer">YouTube</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Thinkers Table. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+</html>
