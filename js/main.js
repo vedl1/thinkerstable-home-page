@@ -38,7 +38,7 @@ async function fetchPodcastRSS() {
             }));
         }
     } catch (error) {
-        console.log('RSS fetch failed, using fallback data:', error);
+        console.log('RSS fetch failed due to CORS or network issue, using fallback data:', error);
     }
     
     // Fallback data based on your actual episodes
