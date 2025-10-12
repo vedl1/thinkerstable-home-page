@@ -369,13 +369,13 @@ body {
   justify-content: center;
 }
 
-.hero-luma {
+.hero-chatbot {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.hero-luma iframe {
+.hero-chatbot iframe {
   max-width: 100%;
   border-radius: var(--radius-md);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -769,7 +769,7 @@ body {
     text-align: center;
   }
   
-  .hero-luma iframe {
+  .hero-chatbot iframe {
     height: 350px !important;
   }
 }
@@ -784,7 +784,7 @@ body {
     margin-top: 100px; /* Adjust for header on mobile */
   }
   
-  .hero-luma iframe {
+  .hero-chatbot iframe {
     height: 300px !important;
   }
   
