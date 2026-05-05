@@ -411,14 +411,36 @@ html.tb-cursor-on body.tb-body * { cursor: none !important; }
   max-width: 560px; margin: 4px 0 0; line-height: 1.4;
 }
 .letter-form-wrap {
-  width: 100%; margin-top: 16px;
+  width: 100%; max-width: 720px; margin-top: 16px;
   display: flex; flex-direction: column; gap: 10px;
 }
-.beehiiv-embed {
-  width: 100%; max-width: 560px; height: 280px;
-  border: 1px solid var(--night-3); background: var(--night-2);
-  display: block;
+.letter-form-row {
+  display: flex; align-items: stretch;
+  border: 1px solid var(--night-3);
+  background: var(--night-2);
+  margin: 0; padding: 0;
 }
+.letter-form-row input[type="email"] {
+  flex: 1; min-width: 0;
+  background: transparent; border: 0; outline: 0;
+  color: var(--parchment);
+  padding: 20px 24px;
+  font-family: var(--serif); font-size: 20px; font-weight: 400;
+  border-radius: 0;
+}
+.letter-form-row input[type="email"]::placeholder { color: rgba(232, 225, 207, 0.35); }
+.letter-form-row button {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 0 28px; border: 0; border-radius: 0;
+  background: var(--tb-accent); color: var(--night);
+  cursor: pointer;
+  font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em;
+  text-transform: uppercase; font-weight: 600;
+  white-space: nowrap;
+  transition: background 200ms, color 200ms;
+}
+.letter-form-row button:hover { background: var(--tb-accent-deep); color: var(--parchment); }
+.letter-form-row.is-sent button { background: var(--night-3); color: var(--tb-accent); }
 .letter-form-meta { display: flex; gap: 12px; padding-top: 4px; }
 .letter-preview {
   width: 100%; margin-top: 24px; padding: 32px;

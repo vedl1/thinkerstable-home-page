@@ -101,19 +101,11 @@ async function fetchEpisodes() {
 function renderHero(eps) {
   if (!eps?.length) return;
   const latest = eps[0];
-  const epsCount = document.getElementById('counter-eps');
-  const hoursCount = document.getElementById('counter-hours');
   const corner = document.getElementById('hero-corner');
   const label = document.getElementById('hero-label');
   const media = document.getElementById('hero-media');
   const placeholder = document.getElementById('hero-placeholder');
 
-  if (epsCount) epsCount.textContent = String(eps.length).padStart(3, '0');
-  if (hoursCount) {
-    const total = eps.reduce((sum, e) => sum + (e.durationSeconds || 0), 0);
-    const hours = total / 3600;
-    hoursCount.innerHTML = `${hours >= 10 ? Math.round(hours) : hours.toFixed(1)}<span>h</span>`;
-  }
   if (corner) corner.textContent = `EP · ${latest.n}`;
   if (label) label.textContent = truncate(latest.title.toLowerCase(), 60);
   if (media) media.href = latest.link;
@@ -296,10 +288,6 @@ function setupMenu() {
   document.getElementById('mega-close')?.addEventListener('click', closeMenu);
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeMenu();
-    else if ((e.key === 'm' || e.key === 'M') && !e.metaKey && !e.ctrlKey) {
-      const mega = document.getElementById('mega');
-      if (mega) mega.classList.toggle('is-open');
-    }
   });
 }
 
@@ -353,12 +341,26 @@ function setupCursor() {
   document.addEventListener('mouseleave', () => cursor.classList.remove('is-visible'));
 }
 
+/* ---------- Letter form ---------- */
+function setupLetterForm() {
+  const form = document.getElementById('letter-form');
+  const button = document.getElementById('letter-submit');
+  if (!form || !button) return;
+  form.addEventListener('submit', () => {
+    setTimeout(() => {
+      form.classList.add('is-sent');
+      button.querySelector('span').textContent = '✓ Subscribed';
+    }, 200);
+  });
+}
+
 /* ---------- Boot ---------- */
 async function boot() {
   setupStages();
   setupMenu();
   setupHeroParallax();
   setupCursor();
+  setupLetterForm();
 
   // Loading state for ticker
   renderTicker(null);

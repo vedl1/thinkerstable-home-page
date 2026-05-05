@@ -15,8 +15,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css"/>
-
-<script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
 </head>
 <body class="tb-body">
 
@@ -65,10 +63,6 @@
       </h1>
       <div class="stage-sub">
         <p>Long-form video conversations with the people actually building AI, robotics, fusion, fintech infrastructure, synthetic biology. One hour minimum. No hot takes.</p>
-        <div class="stage-counters" id="hero-counters">
-          <div><div class="counter-n" id="counter-eps">—</div><div class="mono-label">Episodes</div></div>
-          <div><div class="counter-n" id="counter-hours">—<span>h</span></div><div class="mono-label">On tape</div></div>
-        </div>
       </div>
       <a class="stage-hero-media" id="hero-media"
          href="https://open.spotify.com/show/2NO20Xotti7YZObF6ZxBA7"
@@ -159,15 +153,24 @@
         <p class="stage-letter-lede">Nothing about the news. Just one idea, long enough to sit with.</p>
 
         <div class="letter-form-wrap">
-          <iframe
-            id="beehiiv-letter"
-            src="https://subscribe-forms.beehiiv.com/746e766f-5bdd-4d84-af7e-24b32dc99f95"
-            class="beehiiv-embed"
-            data-test-id="beehiiv-embed"
-            frameborder="0"
-            scrolling="no"
-            title="Newsletter Subscription Form">
-          </iframe>
+          <form
+            class="letter-form-row"
+            id="letter-form"
+            action="https://thinkerstable.beehiiv.com/subscribe"
+            method="GET"
+            target="_blank">
+            <input
+              type="email"
+              name="email"
+              id="letter-email"
+              placeholder="your.email@company.com"
+              required
+              autocomplete="email"/>
+            <button type="submit" id="letter-submit">
+              <span>Subscribe</span>
+              <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg>
+            </button>
+          </form>
           <div class="letter-form-meta">
             <span class="mono-label">no tracking</span>
             <span class="mono-label">·</span>
