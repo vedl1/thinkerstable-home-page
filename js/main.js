@@ -341,26 +341,12 @@ function setupCursor() {
   document.addEventListener('mouseleave', () => cursor.classList.remove('is-visible'));
 }
 
-/* ---------- Letter form ---------- */
-function setupLetterForm() {
-  const form = document.getElementById('letter-form');
-  const button = document.getElementById('letter-submit');
-  if (!form || !button) return;
-  form.addEventListener('submit', () => {
-    setTimeout(() => {
-      form.classList.add('is-sent');
-      button.querySelector('span').textContent = '✓ Subscribed';
-    }, 200);
-  });
-}
-
 /* ---------- Boot ---------- */
 async function boot() {
   setupStages();
   setupMenu();
   setupHeroParallax();
   setupCursor();
-  setupLetterForm();
 
   // Loading state for ticker
   renderTicker(null);
