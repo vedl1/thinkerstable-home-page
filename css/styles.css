@@ -394,10 +394,11 @@ html.tb-cursor-on body.tb-body * { cursor: none !important; }
 .dinner-coming .dinner-card-date { color: var(--tb-accent-soft); }
 
 /* ---- STAGE 4 — Letter ---- */
-.stage-letter { justify-content: center; align-items: center; }
+.stage-letter { justify-content: flex-start; align-items: center; overflow-y: auto; padding-top: 48px; }
 .stage-letter-inner {
   max-width: 900px; width: 100%;
-  display: flex; flex-direction: column; gap: 20px; align-items: flex-start;
+  display: flex; flex-direction: column; gap: 16px; align-items: flex-start;
+  padding-bottom: 40px;
 }
 .stage-letter-title {
   font-family: var(--serif); font-weight: 400;
@@ -413,6 +414,12 @@ html.tb-cursor-on body.tb-body * { cursor: none !important; }
 .letter-form-wrap {
   width: 100%; max-width: 720px; margin-top: 16px;
   display: flex; flex-direction: column; gap: 10px;
+}
+.beehiiv-embed-wrap {
+  width: 100%; margin-top: 8px;
+}
+.beehiiv-embed-wrap iframe {
+  display: block; width: 100%; border: none;
 }
 .letter-form-row {
   display: flex; align-items: stretch;
