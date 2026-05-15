@@ -27,8 +27,6 @@ body.tb-body {
 img { max-width: 100%; display: block; }
 a { color: inherit; }
 
-html.tb-cursor-on body.tb-body,
-html.tb-cursor-on body.tb-body * { cursor: none !important; }
 
 .tb-root {
   height: 100vh; width: 100vw;
@@ -84,22 +82,6 @@ html.tb-cursor-on body.tb-body * { cursor: none !important; }
   border-left: 16px solid currentColor; margin-left: 4px;
 }
 
-/* ---- Table-icon cursor ---- */
-.tb-cursor {
-  position: fixed; top: -28px; left: -28px; z-index: 1000; pointer-events: none;
-  opacity: 0; transition: opacity 150ms;
-  will-change: transform;
-  display: flex; flex-direction: column; align-items: center; gap: 4px;
-}
-.tb-cursor.is-visible { opacity: 1; }
-.tb-cursor .cursor-play { display: none; }
-.tb-cursor.is-play .cursor-play { display: inline; }
-.tb-cursor-label {
-  font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em;
-  color: var(--night); background: var(--tb-accent); padding: 3px 8px;
-  display: none;
-}
-.tb-cursor.is-play .tb-cursor-label { display: inline-block; }
 
 /* ---- Persistent email CTA bar ---- */
 .tb-cta-bar {
@@ -287,19 +269,19 @@ html.tb-cursor-on body.tb-body * { cursor: none !important; }
 /* ---- STAGE 2 — Episodes rail ---- */
 .stage-eps { gap: 32px; }
 .stage-eps-rail {
-  display: flex; gap: 20px; overflow-x: auto;
+  display: flex; flex-direction: column; gap: 12px; overflow-y: auto; overflow-x: hidden;
   padding: 8px 0 40px;
-  flex: 1;
+  flex: 1; min-height: 0; width: 100%;
   scrollbar-width: none;
 }
 .stage-eps-rail::-webkit-scrollbar { display: none; }
 .ep-rail-loading {
-  flex: 0 0 100%; display: grid; place-items: center;
+  display: grid; place-items: center;
   color: var(--tb-accent);
 }
 .ep-tile {
-  flex: 0 0 360px;
-  display: flex; flex-direction: column;
+  flex: 0 0 auto; width: 100%; max-width: 100%; overflow: hidden;
+  display: flex; flex-direction: row;
   background: var(--night-2);
   border: 1px solid var(--night-3);
   transition: transform 250ms cubic-bezier(.2,.7,.2,1), border-color 250ms, box-shadow 250ms;
@@ -307,13 +289,13 @@ html.tb-cursor-on body.tb-body * { cursor: none !important; }
   cursor: pointer;
 }
 .ep-tile:hover {
-  transform: translateY(-6px);
+  transform: translateX(6px);
   border-color: var(--tb-accent);
-  box-shadow: 0 12px 0 -4px var(--tb-accent);
+  box-shadow: -6px 0 0 0 var(--tb-accent);
 }
 .ep-tile-media {
-  position: relative; aspect-ratio: 16 / 10; overflow: hidden;
-  border-bottom: 1px solid var(--night-3);
+  position: relative; width: 220px; height: 130px; flex-shrink: 0; overflow: hidden;
+  border-right: 1px solid var(--night-3);
 }
 .ep-tile-overlay {
   position: absolute; inset: 0; padding: 14px;
@@ -330,18 +312,18 @@ html.tb-cursor-on body.tb-body * { cursor: none !important; }
   font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em;
   font-weight: 600;
 }
-.ep-tile-body { padding: 18px 20px 22px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+.ep-tile-body { padding: 18px 20px 22px; display: flex; flex-direction: column; gap: 8px; flex: 1; min-width: 0; }
 .ep-tile-topline { display: flex; justify-content: space-between; }
 .ep-tile-guest {
-  font-family: var(--serif); font-weight: 400; font-size: 24px;
+  font-family: var(--serif); font-weight: 400; font-size: 22px;
   letter-spacing: -0.015em; line-height: 1.1;
   margin: 4px 0 0; color: var(--parchment);
 }
 .ep-tile-pull {
   font-family: var(--serif); font-style: italic; font-weight: 300;
-  font-size: 16px; color: rgba(232,225,207,0.78);
+  font-size: 15px; color: rgba(232,225,207,0.78);
   line-height: 1.35; margin: 6px 0 0;
-  display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
   overflow: hidden;
 }
 .ep-tile-meta {
@@ -353,8 +335,8 @@ html.tb-cursor-on body.tb-body * { cursor: none !important; }
   text-transform: uppercase; color: rgba(232,225,207,0.55);
 }
 .ep-rail-end {
-  flex: 0 0 260px; display: flex; flex-direction: column; justify-content: center;
-  gap: 16px; padding: 24px 20px; border-left: 1px dashed var(--night-3);
+  display: flex; flex-direction: column; justify-content: center;
+  gap: 16px; padding: 24px 20px; border-top: 1px dashed var(--night-3);
 }
 
 /* ---- STAGE 3 — Table ---- */
@@ -569,10 +551,7 @@ html.tb-cursor-on body.tb-body * { cursor: none !important; }
 /* ---- Mobile / small viewports ---- */
 @media (max-width: 720px) {
   body.tb-body { overflow: auto; }
-  html.tb-cursor-on body.tb-body,
-  html.tb-cursor-on body.tb-body * { cursor: auto !important; }
-  .tb-cursor { display: none !important; }
-  .tb-root { height: auto; }
+.tb-root { height: auto; }
   .tb-top { grid-template-columns: auto 1fr auto; padding-left: 12px; }
   .tb-top .tb-stage-pos { display: none; }
   .tb-track {
@@ -606,7 +585,8 @@ html.tb-cursor-on body.tb-body * { cursor: none !important; }
   .stage-eps-meta { justify-content: flex-start; flex-wrap: wrap; gap: 20px; }
   .stage-h2 { font-size: clamp(40px, 9vw, 64px); }
   .stage-eps-rail, .stage-table-rail { padding-bottom: 20px; }
-  .ep-tile { flex: 0 0 280px; }
+  .ep-tile-media { width: 140px; }
+  .ep-tile-guest { font-size: 18px; }
   .dinner-card { flex: 0 0 240px; }
   .dinner-card-city { font-size: 40px; }
   .stage-letter-title { font-size: clamp(40px, 9vw, 64px); }
