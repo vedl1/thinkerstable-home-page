@@ -242,18 +242,24 @@ function setupStages() {
     }, { passive: true });
 
     if (!REDUCED_MOTION && !SMALL_VIEWPORT) {
+      let wheelCooldown = false;
       track.addEventListener('wheel', (e) => {
-        const inner = e.target.closest && e.target.closest('.stage-eps-rail, .stage-table-rail');
-        if (inner) {
+        const innerH = e.target.closest && e.target.closest('.stage-table-rail');
+        if (innerH) {
           if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
             e.preventDefault();
-            inner.scrollBy({ left: e.deltaY * 1.4, behavior: 'auto' });
+            innerH.scrollBy({ left: e.deltaY * 1.4, behavior: 'auto' });
           }
           return;
         }
+        const innerV = e.target.closest && e.target.closest('.stage-eps-rail');
+        if (innerV) return;
         if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
           e.preventDefault();
-          track.scrollBy({ left: e.deltaY * 3.4, behavior: 'auto' });
+          if (wheelCooldown) return;
+          wheelCooldown = true;
+          setTimeout(() => { wheelCooldown = false; }, 600);
+          goto(e.deltaY > 0 ? stage + 1 : stage - 1);
         }
       }, { passive: false });
     }
@@ -306,47 +312,12 @@ function setupHeroParallax() {
   stage.addEventListener('mouseleave', () => { media.style.transform = ''; });
 }
 
-/* ---------- Table-icon cursor ---------- */
-function setupCursor() {
-  if (COARSE_POINTER || SMALL_VIEWPORT) return;
-  const cursor = document.getElementById('cursor');
-  if (!cursor) return;
-  document.documentElement.classList.add('tb-cursor-on');
-
-  let raf = 0, lastX = 0, lastY = 0;
-  const apply = () => {
-    raf = 0;
-    cursor.style.transform = `translate(${lastX}px, ${lastY}px)`;
-  };
-
-  window.addEventListener('mousemove', (e) => {
-    lastX = e.clientX; lastY = e.clientY;
-    cursor.classList.add('is-visible');
-    const t = e.target;
-    const interactive = t.closest && (t.closest('button, a, input, textarea, iframe'));
-    const playable = t.closest && t.closest('.ep-tile, .stage-hero-media');
-    if (playable) {
-      cursor.classList.add('is-play');
-      cursor.style.opacity = '1';
-    } else if (interactive) {
-      cursor.classList.remove('is-play');
-      cursor.style.opacity = '0';
-    } else {
-      cursor.classList.remove('is-play');
-      cursor.style.opacity = '1';
-    }
-    if (!raf) raf = requestAnimationFrame(apply);
-  });
-
-  document.addEventListener('mouseleave', () => cursor.classList.remove('is-visible'));
-}
 
 /* ---------- Boot ---------- */
 async function boot() {
   setupStages();
   setupMenu();
   setupHeroParallax();
-  setupCursor();
 
   // Loading state for ticker
   renderTicker(null);
